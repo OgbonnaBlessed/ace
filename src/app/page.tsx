@@ -1,11 +1,15 @@
+import IntroSection from '@/components/IntroSection'
 import React from 'react'
 
-const page = () => {
+const Home = () => {
   return (
-    <div>
-      Ace
+    <div className=''>
+      <IntroSection 
+        topText="Building scalable" 
+        bottomText="software solutions"
+      />
     </div>
   )
 }
 
-export default page
+export default Home

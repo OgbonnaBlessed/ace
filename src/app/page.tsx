@@ -1,5 +1,6 @@
 import IntroSection from '@/components/IntroSection'
 import React from 'react'
+import { ProjectIntro } from '@/components/ProjectsIntro'
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
         topText="Building scalable" 
         bottomText="software solutions"
       />
+      <ProjectIntro />
     </div>
   )
 }

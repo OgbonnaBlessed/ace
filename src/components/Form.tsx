@@ -1,15 +1,29 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Minus } from "lucide-react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { Toaster, toast } from "sonner";  // Import toast from Sonner
+import { Toaster, toast } from "sonner";
 
 export function Form({ onClose }: { onClose: () => void }) {
     const formRef = useRef<HTMLDivElement>(null);
+    const [formData, setFormData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        subject: "",
+        message: "",
+    });
+    const [errors, setErrors] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        subject: "",
+        message: "",
+    });
 
     // Close the form when clicking outside
     useEffect(() => {
@@ -23,26 +37,82 @@ export function Form({ onClose }: { onClose: () => void }) {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [onClose]);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const validateEmail = (email: string) => {
+        return /\S+@\S+\.\S+/.test(email);
+    };
+
+    const validateForm = () => {
+        const newErrors = {
+            firstname: formData.firstname.trim() ? "" : "First name is required.",
+            lastname: formData.lastname.trim() ? "" : "Last name is required.",
+            email: validateEmail(formData.email) ? "" : "Enter a valid email address.",
+            subject: formData.subject.trim() ? "" : "Subject is required.",
+            message: formData.message.trim().length >= 10 ? "" : "Message must be at least 10 characters.",
+        };
+
+        setErrors(newErrors);
+
+        // Remove errors after 4 seconds
+        setTimeout(() => setErrors({ firstname: "", lastname: "", email: "", subject: "", message: "" }), 4000);
+
+        return Object.values(newErrors).every((err) => err === "");
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!validateForm()) return;
 
-        // Display a styled toaster notification
-        toast.success("Your message has been sent successfully!", {
-            description: "We will get back to you shortly.",
-            duration: 5000,
-            position: "top-center",
-            style: {
-                background: "#000", // Match form's dark theme
-                color: "#fff",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.4)",
-            },
-        });
+        const formDataForSubmission = new FormData();
+        formDataForSubmission.append("firstname", formData.firstname);
+        formDataForSubmission.append("lastname", formData.lastname);
+        formDataForSubmission.append("email", formData.email);
+        formDataForSubmission.append("subject", formData.subject);
+        formDataForSubmission.append("message", formData.message);
 
-        // Optionally, close the form after submission
-        setTimeout(() => {
-            onClose();
-        }, 8000);
+        try {
+            const response = await fetch("https://formspree.io/f/xnnjvqal", {
+                method: "POST",
+                body: formDataForSubmission,
+                headers: {
+                    "Accept": "application/json",
+                },
+            });
+
+            if (response.ok) {
+                // Reset form data on successful submission
+                setFormData({
+                    firstname: "",
+                    lastname: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+
+                // Display success toast notification
+                toast.success("Your message has been sent successfully!", {
+                    description: "We will get back to you shortly.",
+                    duration: 5000,
+                    position: "top-center",
+                    style: {
+                        background: "#000", // Match form's dark theme
+                        color: "#fff",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.4)",
+                    },
+                });
+
+                // Optionally close the form after submission
+                setTimeout(() => {
+                    onClose();
+                }, 8000);
+            } else {
+                // Handle failure (if needed)
+                toast.error("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            toast.error("There was an error sending your message.");
+            console.log("Error sending message:", error);
+        }
     };
 
     return (
@@ -101,7 +171,10 @@ export function Form({ onClose }: { onClose: () => void }) {
                                         placeholder="Tyler" 
                                         type="text" 
                                         autoComplete="off"
+                                        value={formData.firstname}
+                                        onChange={(e) => setFormData({ ...formData, firstname: e.target.value })}
                                     />
+                                    {errors.firstname && <ErrorMessage message={errors.firstname} />}
                                 </LabelInputContainer>
                                 <LabelInputContainer>
                                     <Label htmlFor="lastname">Last name</Label>
@@ -110,7 +183,10 @@ export function Form({ onClose }: { onClose: () => void }) {
                                         placeholder="Durden" 
                                         type="text" 
                                         autoComplete="off"
+                                        value={formData.lastname}
+                                        onChange={(e) => setFormData({ ...formData, lastname: e.target.value })}
                                     />
+                                    {errors.lastname && <ErrorMessage message={errors.lastname} />}
                                 </LabelInputContainer>
                             </div>
                             <LabelInputContainer className="mb-4">
@@ -120,7 +196,11 @@ export function Form({ onClose }: { onClose: () => void }) {
                                     placeholder="example@gmail.com" 
                                     type="email" 
                                     autoComplete="off" 
+                                    onInvalid={(e) => e.preventDefault()}
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />
+                                {errors.email && <ErrorMessage message={errors.email} />}
                             </LabelInputContainer>
                             <LabelInputContainer className="mb-4">
                                 <Label htmlFor="subject">Subject</Label>
@@ -129,7 +209,10 @@ export function Form({ onClose }: { onClose: () => void }) {
                                     placeholder="What's the subject?" 
                                     type="text" 
                                     autoComplete="off" 
+                                    value={formData.subject}
+                                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                 />
+                                {errors.subject && <ErrorMessage message={errors.subject} />}
                             </LabelInputContainer>
                             <LabelInputContainer className="mb-4">
                                 <Label htmlFor="message">Message</Label>
@@ -138,7 +221,10 @@ export function Form({ onClose }: { onClose: () => void }) {
                                     placeholder="Tell me about your project..." 
                                     type="text" 
                                     autoComplete="off" 
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                 />
+                                {errors.message && <ErrorMessage message={errors.message} />}
                             </LabelInputContainer>
 
                             <button
@@ -155,6 +241,18 @@ export function Form({ onClose }: { onClose: () => void }) {
         </>
     );
 }
+
+const ErrorMessage = ({ message }: { message: string }) => (
+    <motion.p 
+        initial={{ y: -10, opacity: 0 }} 
+        animate={{ y: 0, opacity: 1 }} 
+        exit={{ y: -10, opacity: 0 }} 
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="text-neutral-400 text-sm mt-1"
+    >
+        {message}
+    </motion.p>
+);
 
 const BottomGradient = () => {
     return (

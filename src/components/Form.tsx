@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster, toast } from "sonner";
 
-export function Form({ onClose }: { onClose: () => void }) {
+export function Form({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
     const formRef = useRef<HTMLDivElement>(null);
     const [formData, setFormData] = useState({
         firstname: "",
@@ -128,12 +128,13 @@ export function Form({ onClose }: { onClose: () => void }) {
             />
 
             <AnimatePresence>
+            {isOpen && (
                 <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="fixed inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/20 dark:border-black/20 flex items-center justify-center z-50 px-5"
+                    className="fixed inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/20 dark:border-black/20 flex items-center justify-center z-[5010] px-5"
                 >
                     <motion.div 
                         initial={{ y: 20, opacity: 0 }}
@@ -145,7 +146,7 @@ export function Form({ onClose }: { onClose: () => void }) {
                     >
                         {/* Close Icon */}
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-gray-300"
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-300"
                             onClick={onClose}
                             type="button"
                         >
@@ -237,6 +238,7 @@ export function Form({ onClose }: { onClose: () => void }) {
                         </form>
                     </motion.div>
                 </motion.div>
+            )}
             </AnimatePresence>
         </>
     );

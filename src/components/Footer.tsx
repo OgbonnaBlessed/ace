@@ -28,6 +28,7 @@ export function Footer() {
             </div>
             {isFormOpen && 
                 <Form 
+                    isOpen={isFormOpen}
                     onClose={() => setIsFormOpen(false)} 
                 />
             }

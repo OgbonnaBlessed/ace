@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Download } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export const FloatingNav = ({
   navItems,
@@ -20,6 +21,16 @@ export const FloatingNav = ({
     className?: string;
     onNavItemClick?: (id: string) => void;
 }) => {
+    const pathname = usePathname(); // Get the current path
+
+    // Function to scroll to the footer
+    const handleHireMeClick = () => {
+        const footer = document.getElementById("footer-section");
+        if (footer) {
+            footer.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 1, y: 0 }}
@@ -51,14 +62,25 @@ export const FloatingNav = ({
                     </Link>
                 )
             ))}
-            <a 
-                href="/OgbonnaBlessedCV.pdf"
-                download="OgbonnaBlessedCV.pdf"
-                className="flex items-center justify-center gap-2 bg-gradient-to-bl to-cyan-500 from-slate-950 text-sm font-medium relative text-white px-4 py-2 rounded-full"
-            >
-                CV
-                <Download size={16} />
-            </a>
+
+            {/* Conditionally render "Hire Me" on the Projects page, otherwise show "Download CV" */}
+            {pathname === "/projects" ? (
+                <button 
+                    onClick={handleHireMeClick}
+                    className="flex items-center justify-center gap-2 bg-gradient-to-bl to-cyan-500 from-slate-950 text-sm font-medium relative text-white px-4 py-2 rounded-full"
+                >
+                    Hire Me
+                </button>
+            ) : (
+                <a 
+                    href="/OgbonnaBlessedCV.pdf"
+                    download="OgbonnaBlessedCV.pdf"
+                    className="flex items-center justify-center gap-2 bg-gradient-to-bl to-cyan-500 from-slate-950 text-sm font-medium relative text-white px-4 py-2 rounded-full"
+                >
+                    CV
+                    <Download size={16} />
+                </a>
+            )}
         </motion.div>
     );
 };

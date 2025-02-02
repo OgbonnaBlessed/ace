@@ -39,3 +39,14 @@ input[type="color"] {
 .root-layout {
   @apply mx-auto w-full h-full justify-center items-center;
 }
+
+.scroll-bar::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: grabbing;
+}

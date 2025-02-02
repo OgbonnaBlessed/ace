@@ -18,6 +18,7 @@ export default {
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
+        move: "move 5s linear infinite",
       },
       keyframes: {
         shimmer: {
@@ -27,6 +28,10 @@ export default {
           to: {
             backgroundPosition: "-200% 0",
           },
+        },
+        move: {
+          "0%": { transform: "translateX(-200px)" },
+          "100%": { transform: "translateX(200px)" },
         },
       },
       boxShadow: {

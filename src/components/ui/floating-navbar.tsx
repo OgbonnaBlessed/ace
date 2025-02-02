@@ -73,7 +73,7 @@ export const FloatingNav = ({
                 </button>
             ) : (
                 <a 
-                    href="/OgbonnaBlessedCV.pdf"
+                    href="/assets/OgbonnaBlessedCV.pdf"
                     download="OgbonnaBlessedCV.pdf"
                     className="flex items-center justify-center gap-2 bg-gradient-to-bl to-cyan-500 from-slate-950 text-sm font-medium relative text-white px-4 py-2 rounded-full"
                 >

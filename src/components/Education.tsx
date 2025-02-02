@@ -37,7 +37,7 @@ export function Education() {
             This program provided in-depth training on HTML, CSS, JavaScript, React.js, and modern web development best practices. It was designed to equip students with technical and problem-solving skills essential for building scalable web applications.
           </p>
           <a
-            href="/CWW Tech Africa.jpeg" // Update with your actual certificate path
+            href="/assets/CWW Tech Africa.jpeg" // Update with your actual certificate path
             download="CWW Tech Africa.jpeg"
             className="bg-gradient-to-bl to-cyan-500  from-slate-950 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-2 w-fit mb-5"
           >

@@ -15,7 +15,7 @@ export function Experience() {
                         Throughout this period, I honed my skills in <strong>React.js, TypeScript, Firebase, and modern UI/UX principles</strong>. My work involved developing scalable web applications, optimizing front-end performance, and ensuring seamless user experiences. Plus, I also earned a <strong>certificate of completion</strong> for my hard work.
                     </p>
                     <a
-                        href="/Certificate_of_Completion.jpeg" // Update with your actual certificate path
+                        href="/assets/Certificate_of_Completion.jpeg" // Update with your actual certificate path
                         download="Certificate_of_Completion.jpeg"
                         className="bg-gradient-to-bl to-cyan-500  from-slate-950 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-2 w-fit"
                     >

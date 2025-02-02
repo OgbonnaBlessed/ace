@@ -37,12 +37,12 @@ export function Projects() {
 
     return (
         <div 
-            className="flex flex-col gap-3 w-full py-20 px-10" 
-            id="projects-section"
+          className="flex flex-col gap-3 w-full py-20 px-10" 
+          id="projects-section"
         >
             <div className="flex flex-col">
-                <h1 className="text-lg font-semibold text-white py-2">My Projects</h1>
-                <p className="text-sm font-normal text-neutral-400 max-w-sm">A collection of my recent works</p>
+              <h1 className="text-lg font-semibold text-white py-2">My Projects</h1>
+              <p className="text-sm font-normal text-neutral-400 max-w-sm">A collection of my recent works</p>
             </div>
             <div className="flex flex-col items-center gap-5 w-full min-h-fit">
                 <div className="grid md:grid-cols-4 grid-cols-2 items-center gap-4">
@@ -83,20 +83,20 @@ export function Projects() {
                         Mobile app
                     </motion.button>
                 </div>
-                <div>
+                <div className="relative">
                     <AnimatePresence>
                         {active && typeof active === "object" && (
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black/20 h-full w-full z-[5008]"
+                                className="fixed inset-0 bg-black/20 h-full w-full z-[50010]"
                             />
                         )}
                     </AnimatePresence>
                     <AnimatePresence>
                         {active && typeof active === "object" ? (
-                            <div className="fixed inset-0 bg-black/20 backdrop-blur-lg grid place-items-center z-[5008]">
+                            <div className="fixed inset-0 bg-black/20 backdrop-blur-lg grid place-items-center z-[50010]">
                                 <motion.button
                                     key={`button-${active.title}-${id}`}
                                     layout
@@ -239,11 +239,11 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    title: "Summertime Sadness",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+    title: "Ace Tech Academia",
+    src: "/projects/lms.png",
     ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    category: ["website"],
+    ctaLink: "https://acetechacademia.com",
+    category: ["website", "full-stack"],
     content: () => {
       return (
         <p>
@@ -262,11 +262,11 @@ const cards = [
     },
   },
   {
-    title: "Mitran Di Chhatri",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+    title: "Book Field",
+    src: "/projects/book-field.png",
     ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    category: ["full-stack"],
+    ctaLink: "https://ogbonnablessed.github.io/books/",
+    category: ["website"],
     content: () => {
       return (
         <p>
@@ -284,11 +284,11 @@ const cards = [
     },
   },
   {
-    title: "For Whom The Bell Tolls",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
+    title: "Developer Portfolio",
+    src: "/projects/developer-portfolio.png",
     ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    category: ["full-stack"],
+    ctaLink: "https://ogbonnablessed.github.io/Blessed/",
+    category: ["website"],
     content: () => {
       return (
         <p>
@@ -306,10 +306,32 @@ const cards = [
     },
   },
   {
-    title: "Aap Ka Suroor",
-    src: "https://assets.aceternity.com/demos/aap-ka-suroor.jpeg",
+    title: "Echelon",
+    src: "/projects/echelon-ecommerce.png",
     ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://echelon-ecommerce-platform.onrender.com/",
+    category: ["website", "full-stack"],
+    content: () => {
+      return (
+        <p>
+          Himesh Reshammiya, a renowned Indian music composer, singer, and
+          actor, is celebrated for his distinctive voice and innovative
+          compositions. Born in Mumbai, India, he has become a prominent figure
+          in the Bollywood music industry. <br /> <br /> His songs often feature
+          a blend of contemporary and traditional Indian music, capturing the
+          essence of modern Bollywood soundtracks. With a career spanning over
+          two decades, Himesh Reshammiya has released numerous hit albums and
+          singles that have garnered him a massive fan following both in India
+          and abroad.
+        </p>
+      );
+    },
+  },
+  {
+    title: "Omega Vision Christian Network",
+    src: "/projects/ovcn.png",
+    ctaText: "Visit",
+    ctaLink: "https://ogbonnablessed.github.io/Omega-Vision-Christian-Network/",
     category: ["website"],
     content: () => {
       return (
@@ -328,55 +350,33 @@ const cards = [
     },
   },
   {
-    title: "Second project",
-    src: "/full-stack-dev.jpg",
+    title: "This Jesus Blog",
+    src: "/projects/this-jesus-blog.png",
     ctaText: "Visit",
-    ctaLink: "#",
+    ctaLink: "https://this-jesus.onrender.com/",
+    category: ["website", "full-stack"],
+    content: () => {
+      return (
+        <p>
+          Himesh Reshammiya, a renowned Indian music composer, singer, and
+          actor, is celebrated for his distinctive voice and innovative
+          compositions. Born in Mumbai, India, he has become a prominent figure
+          in the Bollywood music industry. <br /> <br /> His songs often feature
+          a blend of contemporary and traditional Indian music, capturing the
+          essence of modern Bollywood soundtracks. With a career spanning over
+          two decades, Himesh Reshammiya has released numerous hit albums and
+          singles that have garnered him a massive fan following both in India
+          and abroad.
+        </p>
+      );
+    },
+  },
+  {
+    title: "Velora",
+    src: "/projects/velora.png",
+    ctaText: "Visit",
+    ctaLink: "https://velora-96c0.onrender.com/",
     category: ["full-stack", "website"],
-    content: () => {
-      return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
-      );
-    },
-  },
-  {
-    title: "Fourth project",
-    src: "/blessed.jpeg",
-    ctaText: "Visit",
-    ctaLink: "#",
-    category: ["website"],
-    content: () => {
-      return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
-      );
-    },
-  },
-  {
-    title: "React Native App",
-    src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=600",
-    ctaText: "Visit",
-    ctaLink: "#",
-    category: ["mobile-app"],
     content: () => {
       return (
         <p>
@@ -386,11 +386,11 @@ const cards = [
     },
   },
   {
-    title: "Fifth name",
-    src: "/backend-dev.jpg",
+    title: "React Native App",
+    src: "/projects/coming-soon.webp",
     ctaText: "Visit",
     ctaLink: "#",
-    category: ["full-stack", "website"],
+    category: ["mobile-app"],
     content: () => {
       return (
         <p>

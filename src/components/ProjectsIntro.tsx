@@ -7,96 +7,93 @@ export function ProjectIntro() {
 }
 export const products = [
     {
-        title: "Moonbeam",
-        link: "https://gomoonbeam.com",
+        title: "Ace Tech Academia",
+        link: "https://acetechacademia.com",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+        "/projects/lms.png",
     },
     {
-        title: "Cursor",
-        link: "https://cursor.so",
+        title: "Book Field",
+        link: "https://ogbonnablessed.github.io/books/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+        "/projects/book-field.png",
     },
     {
-        title: "Rogue",
-        link: "https://userogue.com",
+        title: "Portfolio",
+        link: "https://ogbonnablessed.github.io/Blessed/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-    },
-
-    {
-        title: "Editorially",
-        link: "https://editorially.org",
-        thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+        "/projects/developer-portfolio.png",
     },
     {
-        title: "Editrix AI",
-        link: "https://editrix.ai",
+        title: "Echelon",
+        link: "hhttps://echelon-ecommerce-platform.onrender.com/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+        "/projects/echelon-ecommerce.png",
     },
     {
-        title: "Pixel Perfect",
-        link: "https://app.pixelperfect.quest",
+        title: "Omega Vision Christian Network",
+        link: "https://ogbonnablessed.github.io/Omega-Vision-Christian-Network/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
-    },
-
-    {
-        title: "Algochurn",
-        link: "https://algochurn.com",
-        thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+        "/projects/ovcn.png",
     },
     {
-        title: "Aceternity UI",
-        link: "https://ui.aceternity.com",
+        title: "This Jesus Blog",
+        link: "https://this-jesus.onrender.com/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+        "/projects/this-jesus-blog.png",
     },
     {
-        title: "Tailwind Master Kit",
-        link: "https://tailwindmasterkit.com",
+        title: "velora",
+        link: "https://velora-96c0.onrender.com/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+        "/projects/velora.png",
     },
     {
-        title: "SmartBridge",
-        link: "https://smartbridgetech.com",
+        title: "Ace Tech Academia",
+        link: "https://acetechacademia.com",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+        "/projects/lms.png",
     },
     {
-        title: "Renderwork Studio",
-        link: "https://renderwork.studio",
+        title: "Book Field",
+        link: "https://ogbonnablessed.github.io/books/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-    },
-
-    {
-        title: "Creme Digital",
-        link: "https://cremedigital.com",
-        thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+        "/projects/book-field.png",
     },
     {
-        title: "Golden Bells Academy",
-        link: "https://goldenbellsacademy.com",
+        title: "Portfolio",
+        link: "https://ogbonnablessed.github.io/Blessed/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+        "/projects/developer-portfolio.png",
     },
     {
-        title: "Invoker Labs",
-        link: "https://invoker.lol",
+        title: "Echelon",
+        link: "hhttps://echelon-ecommerce-platform.onrender.com/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+        "/projects/echelon-ecommerce.png",
     },
     {
-        title: "E Free Invoice",
-        link: "https://efreeinvoice.com",
+        title: "Omega Vision Christian Network",
+        link: "https://ogbonnablessed.github.io/Omega-Vision-Christian-Network/",
         thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+        "/projects/ovcn.png",
+    },
+    {
+        title: "This Jesus Blog",
+        link: "https://this-jesus.onrender.com/",
+        thumbnail:
+        "/projects/this-jesus-blog.png",
+    },
+    {
+        title: "velora",
+        link: "https://velora-96c0.onrender.com/",
+        thumbnail:
+        "/projects/velora.png",
+    },
+    {
+        title: "React Native",
+        link: "#",
+        thumbnail:
+        "/projects/coming-soon.webp",
     },
 ];

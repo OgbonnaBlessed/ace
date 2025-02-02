@@ -50,7 +50,7 @@ const Page = () => {
             
             <div 
                 id="about-section"
-                style={{ backgroundImage: "url('/blessed.jpeg')" }}
+                style={{ backgroundImage: "url('/assets/blessed.jpeg')" }}
                 className="md:p-20 p-6 min-h-screen flex flex-col gap-5 items-start justify-center bg-cover bg-center bg-no-repeat w-full"
             >
                 <TextEffect />

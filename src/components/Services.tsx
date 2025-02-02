@@ -12,7 +12,7 @@ const services = [
         content: (
             <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
-                    src="/frontend-dev.jpg"
+                    src="/services/frontend-dev.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -28,7 +28,7 @@ const services = [
         content: (
             <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
-                    src="/backend-dev.jpg"
+                    src="/services/backend-dev.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -44,7 +44,7 @@ const services = [
         content: (
             <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
-                    src="/full-stack-dev.jpg"
+                    src="/services/full-stack-dev.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -60,7 +60,7 @@ const services = [
         content: (
             <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
-                    src="/mobile-dev.jpeg"
+                    src="/services/mobile-dev.jpeg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"

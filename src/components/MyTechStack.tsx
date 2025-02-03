@@ -25,7 +25,7 @@ const techStack = [
   { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
   { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
   { name: "DynamoDB", icon: SiAmazondynamodb, color: "text-blue-700" },
-  { name: "Express.js", icon: SiExpress, color: "text-green-500" },
+  { name: "Express.js", icon: SiExpress, color: "text-black" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-500" },
   { name: "AWS", icon: SiAwsamplify, color: "text-orange-700" },
 ];

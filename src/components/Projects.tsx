@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { JSX, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { Minus } from "lucide-react";
+import { FaReact, FaDocker, FaAws, FaStripe, FaHtml5, FaCss3 } from 'react-icons/fa';
+import { SiRedux, SiTailwindcss, SiFramer, SiTypescript, SiZod, SiExpress, SiClerk, SiVercel, SiI3, SiNextdotjs, SiAmazondynamodb, SiShadcnui, SiReacthookform, SiGithubpages, SiJavascript, SiRender, SiFirebase, SiMongodb, SiNodedotjs } from 'react-icons/si';
 
 export function Projects() {
     const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(null);
@@ -106,10 +109,10 @@ export function Projects() {
                                         opacity: 0,
                                         transition: { duration: 0.05 },
                                     }}
-                                    className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+                                    className="flex absolute top-2 right-2 lg:hidden items-center justify-centerrounded-full text-gray-500 hover:text-gray-300 p-2"
                                     onClick={() => setActive(null)}
                                 >
-                                    <CloseIcon />
+                                    <Minus size={20} />
                                 </motion.button>
                                 <motion.div
                                     layoutId={`card-${active.title}-${id}`}
@@ -121,6 +124,7 @@ export function Projects() {
                                             priority
                                             width={200}
                                             height={200}
+                                            quality={100}
                                             src={active.src}
                                             alt={active.title}
                                             className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
@@ -151,17 +155,17 @@ export function Projects() {
                                             </motion.a>
                                         </div>
                                         <div className="pt-4 relative px-4">
-                                            <motion.div
-                                                layout
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                                            >
-                                                {typeof active.content === "function"
-                                                ? active.content()
-                                                : active.content}
-                                            </motion.div>
+                                        <motion.div
+                                          layout
+                                          initial={{ opacity: 0 }}
+                                          animate={{ opacity: 1 }}
+                                          exit={{ opacity: 0 }}
+                                          className="text-xs md:text-sm lg:text-base h-40 md:h-60 lg:h-72 pb-10 flex flex-col items-start gap-4 overflow-y-auto text-neutral-400 scroll-bar"
+                                        >
+                                          {typeof active.content === "function"
+                                            ? active.content()
+                                            : active.content}
+                                      </motion.div>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -184,10 +188,11 @@ export function Projects() {
                                         <motion.div layoutId={`image-${card.title}-${id}`}>
                                             <Image
                                                 priority
-                                                width={100}
-                                                height={100}
+                                                width={400}
+                                                height={300}
                                                 src={card.src}
                                                 alt={card.title}
+                                                quality={100}
                                                 className="h-60 w-full rounded-lg object-cover object-top"
                                             />
                                         </motion.div>
@@ -210,32 +215,95 @@ export function Projects() {
     );
 }
 
-export const CloseIcon = () => {
-    return (
-        <motion.svg
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{
-                opacity: 0,
-                transition: { duration: 0.05 },
-            }}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4 text-black"
-        >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M18 6l-12 12" />
-            <path d="M6 6l12 12" />
-        </motion.svg>
-    );
-};
+const techStackIcons: { [key: string]: JSX.Element } = {
+  "Next.js": (
+    <SiNextdotjs className="text-white text-2xl" />
+  ),
+  "Redux Toolkit": (
+    <SiRedux className="text-blue-500 text-2xl" />
+  ),
+  "React.js": (
+    <FaReact className="text-blue-500 text-2xl" />
+  ),
+  "Tailwind CSS": (
+    <SiTailwindcss className="text-cyan-500 text-2xl" />
+  ),
+  "Shadcn": (
+    <SiShadcnui className="text-white text-2xl" />
+  ), // Assuming Shadcn has a similar color to Tailwind
+  "TypeScript": (
+    <SiTypescript className="text-blue-600 text-2xl" />
+  ),
+  "Framer Motion": (
+    <SiFramer className="text-white text-2xl" />
+  ),
+  "React Hook Form": (
+    <SiReacthookform className="text-pink-500 text-2xl" />
+  ),
+  "Zod": (
+    <SiZod className="text-blue-500 text-2xl" />
+  ),
+  "Stripe": (
+    <FaStripe className="text-blue-600 text-2xl" />
+  ),
+  "Node.js": (
+    <SiNodedotjs className="text-green-600 text-2xl" />
+  ),
+  "Express.js": (
+    <SiExpress className="text-black text-2xl" />
+  ),
+  "Docker": (
+    <FaDocker className="text-blue-500 text-2xl" />
+  ),
+  "AWS Lambda": (
+    <FaAws className="text-orange-500 text-2xl" />
+  ),
+  "DynamoDB": (
+    <SiAmazondynamodb className="text-indigo-600 text-2xl" />
+  ),
+  "S3": (
+    <SiI3 className="text-green-500 text-2xl" />
+  ),
+  "CloudFront": (
+    <FaAws className="text-orange-500 text-2xl" />
+  ),
+  "Clerk": (
+    <SiClerk className="text-gray-600 text-2xl" />
+  ),
+  "Vercel": (
+    <SiVercel className="text-black text-2xl" />
+  ),
+  "GitHub Pages": (
+    <SiGithubpages className="text-white text-5xl" />
+  ),
+  "JavaScript": (
+    <SiJavascript className="text-yellow-500 text-2xl" />
+  ),
+  "HTML": (
+    <FaHtml5 className="text-pink-500 text-2xl" />
+  ),
+  "CSS": (
+    <FaCss3 className="text-blue-500 text-2xl" />
+  ),
+  "Render": (
+    <SiRender className="text-white text-2xl" />
+  ),
+  "Firebase": (
+    <SiFirebase className="text-[#ffcb2b] text-2xl" />
+  ),
+  "MongoDB": (
+    <SiMongodb className="text-green-500 text-2xl" />
+  )
+}
+
+const TechStack = ({ name }: { name: keyof typeof techStackIcons }) => (
+  <span className="relative group flex-col items-center inline">
+    <span className="font-bold text-neutral-400 cursor-pointer">{name}</span>
+    <p className="absolute -top-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {techStackIcons[name]}
+    </p>
+  </span>
+);
 
 const cards = [
   {
@@ -246,18 +314,25 @@ const cards = [
     category: ["website", "full-stack"],
     content: () => {
       return (
-        <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          her melancholic and cinematic music style. Born Elizabeth Woolridge
-          Grant in New York City, she has captivated audiences worldwide with
-          her haunting voice and introspective lyrics. <br /> <br /> Her songs
-          often explore themes of tragic romance, glamour, and melancholia,
-          drawing inspiration from both contemporary and vintage pop culture.
-          With a career that has seen numerous critically acclaimed albums, Lana
-          Del Rey has established herself as a unique and influential figure in
-          the music industry, earning a dedicated fan base and numerous
-          accolades.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          Ace Tech Academia is an innovative learning management system (LMS) designed to provide a seamless and interactive online learning experience. The platform enables instructors to create and manage courses effortlessly while allowing students to enroll, track their progress, and engage with educational content in a user-friendly environment. 
+          
+          <p>
+            With a focus on accessibility and scalability, Ace Tech Academia integrates modern design principles and cutting-edge technologies to enhance the teaching and learning process.
+          </p> 
+          
+          <p>
+            The platform is built using <TechStack name="Next.js" /> for the frontend, with state management handled by <TechStack name="Redux Toolkit" /> and UI components styled using <TechStack name="Tailwind CSS" /> and <TechStack name="Shadcn" />. It leverages <TechStack name="TypeScript" /> for type safety and includes <TechStack name="Framer Motion" /> for smooth animations. 
+          </p>
+
+          <p>
+            Form handling is powered by <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while <TechStack name="Stripe" /> is integrated for seamless payment processing. On the backend, <TechStack name="Node.js" /> and <TechStack name="Express.js" /> provide a robust server-side architecture, containerized with Docker for scalability. 
+          </p>
+          
+          <p>
+            The system is hosted on <TechStack name="AWS Lambda" />, using API Gateway to manage requests, <TechStack name="DynamoDB" /> for efficient database management, S3 for file storage, and <TechStack name="CloudFront" /> for content delivery. Authentication is streamlined with <TechStack name="Clerk" />, and the frontend is deployed on <TechStack name="Vercel" /> for high-performance hosting.
+          </p>
+        </div>
       );
     },
   },
@@ -269,17 +344,20 @@ const cards = [
     category: ["website"],
     content: () => {
       return (
-        <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. Born
-          in the village of Khant Maanpur in Punjab, India, he has become a
-          cultural icon in the Punjabi music industry. <br /> <br /> His songs
-          often reflect the struggles and triumphs of everyday life, capturing
-          the essence of Punjabi culture and traditions. With a career spanning
-          over two decades, Babu Maan has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            Book Field is an innovative online bookstore designed to offer an interactive and engaging shopping experience for book enthusiasts. The website allows users to explore, purchase, and manage books in a seamless way.
+          </p>
+          <p>
+            The homepage features a dynamic book slider that showcases different books at regular intervals, giving users a visually appealing way to browse the collection. 
+          </p>
+          <p>
+            Users can search for books by title, author, or category, making it easy to find specific books. The platform also enables users to add books to their cart or wishlist, and efficiently manage items in the cart by updating quantities or removing books.
+          </p>
+          <p>
+            Integrated with Framer Motion for smooth animations, the website provides a delightful user experience. Built with <TechStack name="React.js" />, Slick Carousel, and deployed on <TechStack name="GitHub Pages" />, Book Field combines modern design and functionality for an optimized shopping journey.
+          </p>
+        </div>
       );
     },
   },
@@ -291,17 +369,17 @@ const cards = [
     category: ["website"],
     content: () => {
       return (
-        <p>
-          Metallica, an iconic American heavy metal band, is renowned for their
-          powerful sound and intense performances that resonate deeply with
-          their audience. Formed in Los Angeles, California, they have become a
-          cultural icon in the heavy metal music industry. <br /> <br /> Their
-          songs often reflect themes of aggression, social issues, and personal
-          struggles, capturing the essence of the heavy metal genre. With a
-          career spanning over four decades, Metallica has released numerous hit
-          albums and singles that have garnered them a massive fan following
-          both in the United States and abroad.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            Developer Portfolio is a portfolio website built to showcase the skills, projects, and experience of a developer. Designed using <TechStack name="HTML" />, <TechStack name="CSS" />, and <TechStack name="JavaScript" />, the portfolio serves as a simple yet effective representation of the abilities of a developer.
+          </p>
+          <p>
+            The website features an intuitive layout, with sections to display projects, skills, and contact information. It&apos;s designed to provide visitors with a clear understanding of one&apos;s professional journey and technical expertise.
+          </p>
+          <p>
+            The Developer Portfolio is a testament to my commitment to clean and efficient code, and serves as a foundational project in my ongoing development as a web developer.
+          </p>
+        </div>
       );
     },
   },
@@ -313,17 +391,33 @@ const cards = [
     category: ["website", "full-stack"],
     content: () => {
       return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            Echelon is a comprehensive e-commerce platform designed to bridge the gap between Nigerian consumers and both international luxury brands and emerging African designers. 
+            
+          </p>
+          <p>
+            As a fully integrated MERN stack (<TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" />) application, Echelon addresses challenges such as shipping barriers, currency conversion issues, and limited visibility for African brands, while providing a seamless online shopping experience. The platform supports global shipping, local payment methods, and personalized promotions tailored to its users.
+          </p>
+          <p>
+            This project was developed as part of my internship at {" "}
+            <a 
+              href="https://programmify.org/"
+              target="_blank"
+              rel="noopener"
+              className="font-bold"
+            >
+              Programmify Ltd
+            </a>, 
+            where my team won first place for our final project. Echelon incorporates key features such as a user-friendly shopping cart, wishlist management, and a personalized user profile page with the ability to update personal details. 
+          </p>
+          <p>
+            The admin dashboard provides functionality for managing orders, products, and tracking payments, ensuring efficient platform administration. Additionally, Echelon integrates 2FA for enhanced security and <TechStack name="Firebase" /> for social media-based authentication, including Google sign-ins.
+          </p>
+          <p>
+            The platform utilizes <TechStack name="Redux Toolkit" /> for state management, <TechStack name="Tailwind CSS" /> for responsive and modern styling, and Axios for API communication. Payments are seamlessly processed via Paystack, and the entire application is deployed on <TechStack name="Render" /> for reliable hosting.
+          </p>
+        </div>
       );
     },
   },
@@ -335,17 +429,14 @@ const cards = [
     category: ["website"],
     content: () => {
       return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            Omega Vision Christian Network is a dynamic church website designed to serve as a digital hub for worship, community engagement, and spiritual growth. Built with <TechStack name="HTML" />, <TechStack name="CSS" />, and <TechStack name="JavaScript" />, the site features an intuitive layout and a carousel slider that dynamically showcases key church events.
+          </p>
+          <p>
+            The platform provides visitors with essential church information, fostering a welcoming online presence for both members and newcomers. Hosted on <TechStack name="GitHub Pages" />, it ensures seamless accessibility and reliability. This project reflects a commitment to excellence in web development while supporting the mission of the church.
+          </p>
+        </div>
       );
     },
   },
@@ -357,17 +448,17 @@ const cards = [
     category: ["website", "full-stack"],
     content: () => {
       return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            This Jesus Blog is a full-stack blogging platform designed to inspire and educate users on faith-based topics. Built using <TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" /> (MERN stack), the platform offers a seamless user experience with intuitive navigation and engaging content.
+          </p>
+          <p>
+            Users can create accounts, manage profiles, and bookmark articles for later reading. The platform also features an admin dashboard, where administrators can efficiently manage posts, comments, and user accounts.
+          </p>
+          <p>
+            To enhance user engagement, <TechStack name="Framer Motion" /> ensures smooth animations and transitions across pages, while EmailJS integration on the Contact page allows visitors to reach out effortlessly.
+          </p>
+        </div>
       );
     },
   },
@@ -379,9 +470,20 @@ const cards = [
     category: ["full-stack", "website"],
     content: () => {
       return (
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aliquam vero perspiciatis aliquid cumque soluta iusto ipsum nulla enim. Accusantium nobis libero quo eum inventore voluptas debitis cumque hic sint iusto mollitia, dolorum ipsam magni nam tenetur, aperiam fuga! Enim facere sit laudantium harum cum distinctio aut quaerat necessitatibus, saepe neque iste adipisci ab facilis ullam corrupti doloribus? Velit, quod? Adipisci soluta dolorem sunt odio, ab nostrum tempora possimus minus deleniti architecto quo sapiente enim exercitationem ipsa illo deserunt officiis! Eveniet vitae odio reiciendis, porro rem soluta sapiente nam, nisi officia vel ratione sint magnam voluptatum at. Minus, aliquid obcaecati.
-        </p>
+        <div className="pb-5 flex flex-col gap-5">
+          <p>
+            Velora is a full-stack travel booking platform that allows users to seamlessly book flights, hotels, and car rentals. Built using <TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" />, it features a two-factor authentication system, ensuring secure access for users.
+          </p>
+          <p>
+            Once logged in, users can manage their bookings and update their profile settings, including email and password changes. The platform is powered by the Amadeus test API, providing real-time data and dynamic search capabilities for a smooth booking experience.
+          </p>
+          <p>
+            To enhance user interaction, <TechStack name="Framer Motion" /> was integrated for smooth animations and transitions, creating a visually appealing and responsive interface. Additionally, Nodemailer is used to send timely and relevant email notifications to users regarding their bookings and account activities.
+          </p>
+          <p>
+            Velora is designed to provide a seamless and secure travel booking experience, combining powerful backend functionality with an intuitive frontend.
+          </p>
+        </div>
       );
     },
   },
@@ -393,9 +495,9 @@ const cards = [
     category: ["mobile-app"],
     content: () => {
       return (
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aliquam vero perspiciatis aliquid cumque soluta iusto ipsum nulla enim. Accusantium nobis libero quo eum inventore voluptas debitis cumque hic sint iusto mollitia, dolorum ipsam magni nam tenetur, aperiam fuga! Enim facere sit laudantium harum cum distinctio aut quaerat necessitatibus, saepe neque iste adipisci ab facilis ullam corrupti doloribus? Velit, quod? Adipisci soluta dolorem sunt odio, ab nostrum tempora possimus minus deleniti architecto quo sapiente enim exercitationem ipsa illo deserunt officiis! Eveniet vitae odio reiciendis, porro rem soluta sapiente nam, nisi officia vel ratione sint magnam voluptatum at. Minus, aliquid obcaecati.
-        </p>
+        <div>
+          Coming soon
+        </div>
       );
     },
   },

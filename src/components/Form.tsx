@@ -132,14 +132,14 @@ export function Form({ isOpen, onClose }: { isOpen: boolean, onClose: () => void
                 <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    exit={{ opacity: 0, transition: { duration: 0.05 } }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="fixed inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/20 dark:border-black/20 flex items-center justify-center z-[5010] px-5"
                 >
                     <motion.div 
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -20, opacity: 0 }}
+                        exit={{ y: -20, opacity: 0, transition: { duration: 0.05 } }}
                         transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.5, delay: 0.5, ease: "easeInOut" }} 
                         ref={formRef} 
                         className="relative max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-input bg-black"

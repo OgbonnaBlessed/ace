@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -27,14 +27,20 @@ export const TextGenerateEffect = ({
             },
             {
                 duration: duration ? duration : 1,
-                delay: stagger(0.2),
+                delay: 0.8,
             }
         );
     }, [scope.current]);
 
     const renderWords = () => {
         return (
-            <motion.div ref={scope} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration }}>
+            <motion.div 
+                ref={scope} 
+                initial={{ opacity: 0, filter: "blur(5px)" }} 
+                animate={{ opacity: 1, filter: "blur(0px)" }} 
+                exit={{ opacity: 0, filter: "blur(5px)" }} 
+                transition={{ duration, delay: 0.8 }}
+            >
                 {/* Use dangerouslySetInnerHTML to inject HTML */}
                 <div
                     className="dark:text-white text-black text-2xl leading-snug tracking-wide"

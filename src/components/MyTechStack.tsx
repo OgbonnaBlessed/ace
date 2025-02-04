@@ -1,5 +1,6 @@
 import { animate } from "framer-motion";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   SiAmazondynamodb,
   SiBootstrap,
@@ -53,7 +54,12 @@ const MyTechStack = () => {
     }, []);
 
     return (
-        <div className="w-full flex flex-col gap-5">
+        <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="w-full flex flex-col gap-5"
+        >
             {/* Heading Section */}
             <div className="flex flex-col">
                 <h1 className="text-lg font-semibold text-white py-2">My Tech Stack</h1>
@@ -99,7 +105,7 @@ const MyTechStack = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

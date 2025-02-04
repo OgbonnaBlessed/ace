@@ -74,7 +74,7 @@ const services = [
 export function Services() {
     return (
         <div 
-            className="md:p-10 p-5 flex flex-col gap-5" 
+            className="flex flex-col gap-5 py-20 md:px-20 px-6" 
             id="services-section"
         >
             <StickyScroll content={services} />

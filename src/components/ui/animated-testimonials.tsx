@@ -47,16 +47,25 @@ export const AnimatedTestimonials = ({
 
     return (
         <div 
-            className="flex flex-col gap-3 w-full py-20 px-10"
+            className="flex flex-col gap-3 w-full py-20 md:px-20 px-6"
             id="testimonials-section"
         >
-            <div className="flex flex-col">
-                <h1 className="text-lg font-semibold text-white py-2">My Testimonials</h1>
-                <p className="text-sm font-normal text-neutral-400 max-w-sm">Hear what people say about me.</p>
-            </div>
+            <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
+                className="flex flex-col"
+            >
+                <h1 className="text-lg md:text-4xl md:mb-4 text-white max-w-4xl">My Testimonials</h1>
+                <p className="text-neutral-300 text-sm md:text-base max-w-sm">Hear what people say about me.</p>
+            </motion.div>
             <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20 flex flex-col gap-5">
                 <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                    >
                         <div className="relative h-80 w-full">
                             <AnimatePresence>
                                 {testimonials.map((testimonial, index) => (
@@ -84,6 +93,7 @@ export const AnimatedTestimonials = ({
                                             alt={testimonial.name}
                                             width={500}
                                             height={500}
+                                            quality={100}
                                             draggable={false}
                                             className="h-full w-full rounded-3xl object-cover object-center"
                                         />
@@ -91,8 +101,13 @@ export const AnimatedTestimonials = ({
                                 ))}
                             </AnimatePresence>
                         </div>
-                    </div>
-                    <div className="flex justify-between flex-col py-4">
+                    </motion.div>
+                    <motion.div 
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        className="flex justify-between flex-col py-4"
+                    >
                         <motion.div
                             key={active}
                                 initial={{
@@ -158,7 +173,7 @@ export const AnimatedTestimonials = ({
                                 <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform duration-300" />
                             </button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

@@ -62,13 +62,22 @@ export const StickyScroll = ({
     }, [activeCard]);
 
     return (
-        <div>
-            <div className="flex flex-col">
-                <h1 className="text-lg font-semibold text-white py-2">My Services</h1>
-                <p className="text-sm font-normal text-neutral-400 max-w-sm">
-                    A list of the services I offer.
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+            <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
+                className="flex flex-col"
+            >
+                <h1 className="text-lg md:text-4xl md:mb-4 text-white max-w-4xl">My Services</h1>
+                <p className="text-neutral-300 text-sm md:text-base max-w-sm">
+                    A list of the services I offer
                 </p>
-            </div>
+            </motion.div>
         
             <motion.div
                 animate={{
@@ -110,6 +119,6 @@ export const StickyScroll = ({
                     {content[activeCard].content ?? null}
                 </div>
             </motion.div>
-        </div>
+        </motion.div>
     );
 };

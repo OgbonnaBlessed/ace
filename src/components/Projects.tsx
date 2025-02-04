@@ -40,15 +40,25 @@ export function Projects() {
 
     return (
         <div 
-          className="flex flex-col gap-3 w-full py-20 px-10" 
+          className="flex flex-col gap-3 w-full py-20 md:px-20 px-6" 
           id="projects-section"
         >
-            <div className="flex flex-col">
-              <h1 className="text-lg font-semibold text-white py-2">My Projects</h1>
-              <p className="text-sm font-normal text-neutral-400 max-w-sm">A collection of my recent works</p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
+              className="flex flex-col"
+            >
+              <h1 className="text-lg md:text-4xl md:mb-4 text-white max-w-4xl">My Projects</h1>
+              <p className="text-neutral-300 text-sm md:text-base max-w-sm">A collection of my recent works</p>
+            </motion.div>
             <div className="flex flex-col items-center gap-5 w-full min-h-fit">
-                <div className="grid md:grid-cols-4 grid-cols-2 items-center gap-4">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="grid md:grid-cols-4 grid-cols-2 items-center gap-4"
+                >
                     <motion.button 
                         type="button"
                         className="bg-gradient-to-tr from-cyan-500 to-slate-900 rounded-full py-3 px-6 font-semibold outline-none"
@@ -85,7 +95,7 @@ export function Projects() {
                     >
                         Mobile app
                     </motion.button>
-                </div>
+                </motion.div>
                 <div className="relative">
                     <AnimatePresence>
                         {active && typeof active === "object" && (
@@ -172,7 +182,12 @@ export function Projects() {
                             </div>
                         ) : null}
                     </AnimatePresence>
-                    <ul className="mx-auto max-w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start gap-4">
+                    <motion.ul 
+                      initial={{ opacity: 0, y: -20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                      className="mx-auto max-w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start gap-4"
+                    >
                         <AnimatePresence>
                             {filteredProjects.map((card) => (
                                 <motion.div
@@ -208,7 +223,7 @@ export function Projects() {
                                 </motion.div>
                             ))}
                         </AnimatePresence>
-                    </ul>
+                    </motion.ul>
                 </div>
             </div>
         </div>

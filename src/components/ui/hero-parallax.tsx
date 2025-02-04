@@ -109,8 +109,7 @@ export const Header = () => {
                 Software Engineering Hub
             </h1>
             <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-                I build scalable, high-performance applications using modern technologies. 
-                Passionate about crafting elegant solutions and driving innovation through code.
+                I specialize in building innovative, user-friendly applications that are designed to scale with your needs. From concept to execution, I ensure that every project is crafted with care, precision, and a focus on long-term success. Let me turn your vision into reality.
             </p>
             <Link
                 href="/projects"

@@ -45,16 +45,24 @@ const Page = () => {
     };
 
     return (
-        <div className="flex flex-col items-start justify-center text-white bg-blend-darken relative w-full">
+        <div className="flex flex-col items-start justify-center text-white relative w-full">
             <FloatingNav navItems={navItems} onNavItemClick={handleNavItemClick} />
-            
+
+            {/* Background section */}
             <div 
                 id="about-section"
-                style={{ backgroundImage: "url('/assets/blessed.jpeg')" }}
-                className="md:p-20 p-6 min-h-screen flex flex-col gap-5 items-start justify-center bg-cover bg-center bg-no-repeat w-full"
+                style={{ backgroundImage: "url('/assets/blessed.png')" }}
+                className="relative md:p-20 max-md:pt-20 pb-6 px-6 min-h-screen flex flex-col gap-5 items-start justify-center 
+                bg-contain bg-no-repeat bg-center w-full"
             >
-                <TextEffect />
-                <Connect />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col gap-5">
+                    <TextEffect />
+                    <Connect />
+                </div>
             </div>
 
             <Experience />

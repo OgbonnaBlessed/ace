@@ -28,12 +28,12 @@ export const FloatingDock = ({
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
-  return (
-    <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
-    </>
-  );
+    return (
+        <>
+            <FloatingDockDesktop items={items} className={desktopClassName} />
+            <FloatingDockMobile items={items} className={mobileClassName} />
+        </>
+    );
 };
 
 const FloatingDockMobile = ({

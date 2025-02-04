@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
-import colors from "tailwindcss/colors";
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 export default {
   content: [
@@ -39,16 +35,5 @@ export default {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [],
 } satisfies Config;
-
-function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
- 
-  addBase({
-    ":root": newVars,
-  });
-}

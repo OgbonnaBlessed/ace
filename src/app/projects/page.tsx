@@ -3,6 +3,7 @@
 import { Footer } from '@/components/Footer'
 import { Projects } from '@/components/Projects';
 import { Services } from '@/components/Services'
+import { Testimonials } from '@/components/Testimonials';
 import { FloatingNav } from '@/components/ui/floating-navbar'
 import { Briefcase, Home, MessageSquareQuote, WorkflowIcon } from 'lucide-react'
 import React from 'react'
@@ -47,6 +48,7 @@ const page = () => {
             <FloatingNav navItems={navItems} onNavItemClick={handleNavItemClick} />
             <Services />
             <Projects />
+            <Testimonials />
             <Footer />
         </div>
     )

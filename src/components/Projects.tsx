@@ -317,21 +317,21 @@ const cards = [
         <div className="pb-5 flex flex-col gap-5">
           Ace Tech Academia is an innovative learning management system (LMS) designed to provide a seamless and interactive online learning experience. The platform enables instructors to create and manage courses effortlessly while allowing students to enroll, track their progress, and engage with educational content in a user-friendly environment. 
           
-          <p>
+          <div>
             With a focus on accessibility and scalability, Ace Tech Academia integrates modern design principles and cutting-edge technologies to enhance the teaching and learning process.
-          </p> 
+          </div> 
           
-          <p>
+          <div>
             The platform is built using <TechStack name="Next.js" /> for the frontend, with state management handled by <TechStack name="Redux Toolkit" /> and UI components styled using <TechStack name="Tailwind CSS" /> and <TechStack name="Shadcn" />. It leverages <TechStack name="TypeScript" /> for type safety and includes <TechStack name="Framer Motion" /> for smooth animations. 
-          </p>
+          </div>
 
-          <p>
+          <div>
             Form handling is powered by <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while <TechStack name="Stripe" /> is integrated for seamless payment processing. On the backend, <TechStack name="Node.js" /> and <TechStack name="Express.js" /> provide a robust server-side architecture, containerized with Docker for scalability. 
-          </p>
+          </div>
           
-          <p>
+          <div>
             The system is hosted on <TechStack name="AWS Lambda" />, using API Gateway to manage requests, <TechStack name="DynamoDB" /> for efficient database management, S3 for file storage, and <TechStack name="CloudFront" /> for content delivery. Authentication is streamlined with <TechStack name="Clerk" />, and the frontend is deployed on <TechStack name="Vercel" /> for high-performance hosting.
-          </p>
+          </div>
         </div>
       );
     },
@@ -345,18 +345,18 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             Book Field is an innovative online bookstore designed to offer an interactive and engaging shopping experience for book enthusiasts. The website allows users to explore, purchase, and manage books in a seamless way.
-          </p>
-          <p>
+          </div>
+          <div>
             The homepage features a dynamic book slider that showcases different books at regular intervals, giving users a visually appealing way to browse the collection. 
-          </p>
-          <p>
+          </div>
+          <div>
             Users can search for books by title, author, or category, making it easy to find specific books. The platform also enables users to add books to their cart or wishlist, and efficiently manage items in the cart by updating quantities or removing books.
-          </p>
-          <p>
+          </div>
+          <div>
             Integrated with Framer Motion for smooth animations, the website provides a delightful user experience. Built with <TechStack name="React.js" />, Slick Carousel, and deployed on <TechStack name="GitHub Pages" />, Book Field combines modern design and functionality for an optimized shopping journey.
-          </p>
+          </div>
         </div>
       );
     },
@@ -370,15 +370,15 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             Developer Portfolio is a portfolio website built to showcase the skills, projects, and experience of a developer. Designed using <TechStack name="HTML" />, <TechStack name="CSS" />, and <TechStack name="JavaScript" />, the portfolio serves as a simple yet effective representation of the abilities of a developer.
-          </p>
-          <p>
+          </div>
+          <div>
             The website features an intuitive layout, with sections to display projects, skills, and contact information. It&apos;s designed to provide visitors with a clear understanding of one&apos;s professional journey and technical expertise.
-          </p>
-          <p>
+          </div>
+          <div>
             The Developer Portfolio is a testament to my commitment to clean and efficient code, and serves as a foundational project in my ongoing development as a web developer.
-          </p>
+          </div>
         </div>
       );
     },
@@ -392,14 +392,14 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             Echelon is a comprehensive e-commerce platform designed to bridge the gap between Nigerian consumers and both international luxury brands and emerging African designers. 
             
-          </p>
-          <p>
+          </div>
+          <div>
             As a fully integrated MERN stack (<TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" />) application, Echelon addresses challenges such as shipping barriers, currency conversion issues, and limited visibility for African brands, while providing a seamless online shopping experience. The platform supports global shipping, local payment methods, and personalized promotions tailored to its users.
-          </p>
-          <p>
+          </div>
+          <div>
             This project was developed as part of my internship at {" "}
             <a 
               href="https://programmify.org/"
@@ -410,13 +410,13 @@ const cards = [
               Programmify Ltd
             </a>, 
             where my team won first place for our final project. Echelon incorporates key features such as a user-friendly shopping cart, wishlist management, and a personalized user profile page with the ability to update personal details. 
-          </p>
-          <p>
+          </div>
+          <div>
             The admin dashboard provides functionality for managing orders, products, and tracking payments, ensuring efficient platform administration. Additionally, Echelon integrates 2FA for enhanced security and <TechStack name="Firebase" /> for social media-based authentication, including Google sign-ins.
-          </p>
-          <p>
+          </div>
+          <div>
             The platform utilizes <TechStack name="Redux Toolkit" /> for state management, <TechStack name="Tailwind CSS" /> for responsive and modern styling, and Axios for API communication. Payments are seamlessly processed via Paystack, and the entire application is deployed on <TechStack name="Render" /> for reliable hosting.
-          </p>
+          </div>
         </div>
       );
     },
@@ -430,12 +430,12 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             Omega Vision Christian Network is a dynamic church website designed to serve as a digital hub for worship, community engagement, and spiritual growth. Built with <TechStack name="HTML" />, <TechStack name="CSS" />, and <TechStack name="JavaScript" />, the site features an intuitive layout and a carousel slider that dynamically showcases key church events.
-          </p>
-          <p>
+          </div>
+          <div>
             The platform provides visitors with essential church information, fostering a welcoming online presence for both members and newcomers. Hosted on <TechStack name="GitHub Pages" />, it ensures seamless accessibility and reliability. This project reflects a commitment to excellence in web development while supporting the mission of the church.
-          </p>
+          </div>
         </div>
       );
     },
@@ -449,15 +449,15 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             This Jesus Blog is a full-stack blogging platform designed to inspire and educate users on faith-based topics. Built using <TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" /> (MERN stack), the platform offers a seamless user experience with intuitive navigation and engaging content.
-          </p>
-          <p>
+          </div>
+          <div>
             Users can create accounts, manage profiles, and bookmark articles for later reading. The platform also features an admin dashboard, where administrators can efficiently manage posts, comments, and user accounts.
-          </p>
-          <p>
+          </div>
+          <div>
             To enhance user engagement, <TechStack name="Framer Motion" /> ensures smooth animations and transitions across pages, while EmailJS integration on the Contact page allows visitors to reach out effortlessly.
-          </p>
+          </div>
         </div>
       );
     },
@@ -471,18 +471,18 @@ const cards = [
     content: () => {
       return (
         <div className="pb-5 flex flex-col gap-5">
-          <p>
+          <div>
             Velora is a full-stack travel booking platform that allows users to seamlessly book flights, hotels, and car rentals. Built using <TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" />, it features a two-factor authentication system, ensuring secure access for users.
-          </p>
-          <p>
+          </div>
+          <div>
             Once logged in, users can manage their bookings and update their profile settings, including email and password changes. The platform is powered by the Amadeus test API, providing real-time data and dynamic search capabilities for a smooth booking experience.
-          </p>
-          <p>
+          </div>
+          <div>
             To enhance user interaction, <TechStack name="Framer Motion" /> was integrated for smooth animations and transitions, creating a visually appealing and responsive interface. Additionally, Nodemailer is used to send timely and relevant email notifications to users regarding their bookings and account activities.
-          </p>
-          <p>
+          </div>
+          <div>
             Velora is designed to provide a seamless and secure travel booking experience, combining powerful backend functionality with an intuitive frontend.
-          </p>
+          </div>
         </div>
       );
     },

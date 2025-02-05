@@ -40,7 +40,7 @@ export function Projects() {
 
     return (
         <div 
-          className="flex flex-col gap-3 w-full py-20 md:px-20 px-6" 
+          className="flex flex-col gap-3 bg-gradient-to-b from-slate-950 to-gray-900 w-full py-20 md:px-20 px-6" 
           id="projects-section"
         >
             <motion.div 
@@ -170,7 +170,7 @@ export function Projects() {
                                           initial={{ opacity: 0 }}
                                           animate={{ opacity: 1 }}
                                           exit={{ opacity: 0 }}
-                                          className="text-xs md:text-sm lg:text-base h-40 md:h-60 lg:h-72 pb-10 flex flex-col items-start gap-4 overflow-y-auto text-neutral-400 scroll-bar"
+                                          className="text-sm lg:text-base h-40 md:h-60 lg:h-72 pb-10 flex flex-col items-start gap-4 overflow-y-auto text-neutral-400 scroll-bar"
                                         >
                                           {typeof active.content === "function"
                                             ? active.content()
@@ -323,7 +323,7 @@ const TechStack = ({ name }: { name: keyof typeof techStackIcons }) => (
 const cards = [
   {
     title: "Ace Tech Academia",
-    src: "/projects/lms.png",
+    src: "/portfolio/lms.png",
     ctaText: "Visit",
     ctaLink: "https://acetechacademia.com",
     category: ["website", "full-stack"],
@@ -341,11 +341,11 @@ const cards = [
           </div>
 
           <div>
-            Form handling is powered by <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while <TechStack name="Stripe" /> is integrated for seamless payment processing. On the backend, <TechStack name="Node.js" /> and <TechStack name="Express.js" /> provide a robust server-side architecture, containerized with Docker for scalability. 
+            Form handling is powered by <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while <TechStack name="Stripe" /> is integrated for seamless payment processing. On the backend, <TechStack name="Node.js" /> and <TechStack name="Express.js" /> provide a robust server-side architecture, containerized with <TechStack name="Docker" /> for scalability. 
           </div>
           
           <div>
-            The system is hosted on <TechStack name="AWS Lambda" />, using API Gateway to manage requests, <TechStack name="DynamoDB" /> for efficient database management, S3 for file storage, and <TechStack name="CloudFront" /> for content delivery. Authentication is streamlined with <TechStack name="Clerk" />, and the frontend is deployed on <TechStack name="Vercel" /> for high-performance hosting.
+            The system is hosted on <TechStack name="AWS Lambda" />, using API Gateway to manage requests, <TechStack name="DynamoDB" /> for efficient database management, <TechStack name="S3" /> for file storage, and <TechStack name="CloudFront" /> for content delivery. Authentication is streamlined with <TechStack name="Clerk" />, and the frontend is deployed on <TechStack name="Vercel" /> for high-performance hosting.
           </div>
         </div>
       );
@@ -353,7 +353,7 @@ const cards = [
   },
   {
     title: "Book Field",
-    src: "/projects/book-field.png",
+    src: "/portfolio/book-field.png",
     ctaText: "Visit",
     ctaLink: "https://ogbonnablessed.github.io/books/",
     category: ["website"],
@@ -370,7 +370,7 @@ const cards = [
             Users can search for books by title, author, or category, making it easy to find specific books. The platform also enables users to add books to their cart or wishlist, and efficiently manage items in the cart by updating quantities or removing books.
           </div>
           <div>
-            Integrated with Framer Motion for smooth animations, the website provides a delightful user experience. Built with <TechStack name="React.js" />, Slick Carousel, and deployed on <TechStack name="GitHub Pages" />, Book Field combines modern design and functionality for an optimized shopping journey.
+            Integrated with <TechStack name="Framer Motion" /> for smooth animations, the website provides a delightful user experience. Built with <TechStack name="React.js" />, Slick Carousel, and deployed on <TechStack name="GitHub Pages" />, Book Field combines modern design and functionality for an optimized shopping journey.
           </div>
         </div>
       );
@@ -378,7 +378,7 @@ const cards = [
   },
   {
     title: "Developer Portfolio",
-    src: "/projects/developer-portfolio.png",
+    src: "/portfolio/developer-portfolio.png",
     ctaText: "Visit",
     ctaLink: "https://ogbonnablessed.github.io/Blessed/",
     category: ["website"],
@@ -400,7 +400,7 @@ const cards = [
   },
   {
     title: "Echelon",
-    src: "/projects/echelon-ecommerce.png",
+    src: "/portfolio/echelon-ecommerce.png",
     ctaText: "Visit",
     ctaLink: "https://echelon-ecommerce-platform.onrender.com/",
     category: ["website", "full-stack"],
@@ -408,8 +408,7 @@ const cards = [
       return (
         <div className="pb-5 flex flex-col gap-5">
           <div>
-            Echelon is a comprehensive e-commerce platform designed to bridge the gap between Nigerian consumers and both international luxury brands and emerging African designers. 
-            
+            Echelon is a comprehensive e-commerce platform designed to bridge the gap between Nigerian consumers and both international luxury brands and emerging African designers.
           </div>
           <div>
             As a fully integrated MERN stack (<TechStack name="MongoDB" />, <TechStack name="Express.js" />, <TechStack name="React.js" />, and <TechStack name="Node.js" />) application, Echelon addresses challenges such as shipping barriers, currency conversion issues, and limited visibility for African brands, while providing a seamless online shopping experience. The platform supports global shipping, local payment methods, and personalized promotions tailored to its users.
@@ -424,7 +423,10 @@ const cards = [
             >
               Programmify Ltd
             </a>, 
-            where my team won first place for our final project. Echelon incorporates key features such as a user-friendly shopping cart, wishlist management, and a personalized user profile page with the ability to update personal details. 
+            where my team won first place for our final project. I worked on the frontend aspect, ensuring the user interface was engaging and functional. Additionally, I assisted with the backend, contributing to key features such as user authentication and product management.
+          </div>
+          <div>
+            Echelon incorporates key features such as a user-friendly shopping cart, wishlist management, and a personalized user profile page with the ability to update personal details.
           </div>
           <div>
             The admin dashboard provides functionality for managing orders, products, and tracking payments, ensuring efficient platform administration. Additionally, Echelon integrates 2FA for enhanced security and <TechStack name="Firebase" /> for social media-based authentication, including Google sign-ins.
@@ -438,7 +440,7 @@ const cards = [
   },
   {
     title: "Omega Vision Christian Network",
-    src: "/projects/ovcn.png",
+    src: "/portfolio/ovcn.png",
     ctaText: "Visit",
     ctaLink: "https://ogbonnablessed.github.io/Omega-Vision-Christian-Network/",
     category: ["website"],
@@ -457,7 +459,7 @@ const cards = [
   },
   {
     title: "This Jesus Blog",
-    src: "/projects/this-jesus-blog.png",
+    src: "/portfolio/this-jesus-blog.png",
     ctaText: "Visit",
     ctaLink: "https://this-jesus.onrender.com/",
     category: ["website", "full-stack"],
@@ -479,7 +481,7 @@ const cards = [
   },
   {
     title: "Velora",
-    src: "/projects/velora.png",
+    src: "/portfolio/velora.png",
     ctaText: "Visit",
     ctaLink: "https://velora-96c0.onrender.com/",
     category: ["full-stack", "website"],
@@ -504,7 +506,7 @@ const cards = [
   },
   {
     title: "React Native App",
-    src: "/projects/coming-soon.webp",
+    src: "/portfolio/coming-soon.webp",
     ctaText: "Visit",
     ctaLink: "#",
     category: ["mobile-app"],

@@ -47,7 +47,7 @@ export const AnimatedTestimonials = ({
 
     return (
         <div 
-            className="flex flex-col gap-3 w-full py-20 md:px-20 px-6"
+            className="flex flex-col md:gap-3 bg-gradient-to-b from-slate-950 to-gray-900 w-full py-20 md:px-20 px-6"
             id="testimonials-section"
         >
             <motion.div 
@@ -60,7 +60,7 @@ export const AnimatedTestimonials = ({
                 <p className="text-neutral-300 text-sm md:text-base max-w-sm">Hear what people say about me.</p>
             </motion.div>
             <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20 flex flex-col gap-5">
-                <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
+                <div className="relative grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -89,6 +89,7 @@ export const AnimatedTestimonials = ({
                                         className="absolute inset-0 origin-bottom"
                                     >
                                         <Image
+                                            priority
                                             src={testimonial.src}
                                             alt={testimonial.name}
                                             width={500}
@@ -133,7 +134,7 @@ export const AnimatedTestimonials = ({
                             <p className="text-sm text-gray-500 dark:text-neutral-500">
                                 {testimonials[active].designation}
                             </p>
-                            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
+                            <motion.p className="text-lg md:mt-8 mt-5 text-neutral-300">
                                 {testimonials[active].quote.split(" ").map((word, index) => (
                                     <motion.span
                                         key={index}

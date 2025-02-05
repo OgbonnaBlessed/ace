@@ -112,7 +112,7 @@ export const Header = () => {
                 I specialize in building innovative, user-friendly applications that are designed to scale with your needs. From concept to execution, I ensure that every project is crafted with care, precision, and a focus on long-term success. Let me turn your vision into reality.
             </p>
             <Link
-                href="/projects"
+                href="/portfolio"
             >
                 <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none mt-10 outline-none z-50">
                     <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />

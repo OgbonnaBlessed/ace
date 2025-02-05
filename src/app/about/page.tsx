@@ -7,14 +7,20 @@ import { Experience } from '@/components/Experience';
 import { Education } from '@/components/Education';
 import { Footer } from '@/components/Footer';
 import { FloatingNav } from '@/components/ui/floating-navbar';
-import { Briefcase, GraduationCap, Home, UserRound } from 'lucide-react';
+import { Briefcase, GraduationCap, Home, Milestone, UserRound } from 'lucide-react';
 
 const Page = () => {
     const navItems = [
         {
             name: "Home",
             link: "/",
-            icon: <Home className="h-4 w-4 text-white" />,
+            icon: <Home className="h-4 w-4 text-cyan-500" />,
+            isInternal: false,
+        },
+        {
+            name: "Portfolio",
+            link: "/portfolio",
+            icon: <Briefcase className='h-4 w-4 text-cyan-500' />,
             isInternal: false,
         },
         {
@@ -26,7 +32,7 @@ const Page = () => {
         {
             name: "Experience",
             link: "experience-section",
-            icon: <Briefcase className="h-4 w-4 text-white" />,
+            icon: <Milestone className="h-4 w-4 text-white" />,
             isInternal: true,
         },
         {

@@ -36,14 +36,14 @@ export const TextGenerateEffect = ({
         return (
             <motion.div 
                 ref={scope} 
-                initial={{ opacity: 0, filter: "blur(5px)" }} 
-                animate={{ opacity: 1, filter: "blur(0px)" }} 
-                exit={{ opacity: 0, filter: "blur(5px)" }} 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                exit={{ opacity: 0 }} 
                 transition={{ duration, delay: 0.8 }}
             >
                 {/* Use dangerouslySetInnerHTML to inject HTML */}
                 <div
-                    className="dark:text-white text-black text-2xl leading-snug tracking-wide"
+                    className="text-white text-lg md:text-2xl leading-snug tracking-wide"
                     dangerouslySetInnerHTML={{ __html: words }}
                 />
             </motion.div>
@@ -51,7 +51,7 @@ export const TextGenerateEffect = ({
     };
 
     return (
-        <div className={cn("font-bold", className)}>
+        <div className={cn("font-serif oblique", className)}>
             <div className="mt-4">
                 {renderWords()}
             </div>

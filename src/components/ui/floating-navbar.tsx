@@ -50,7 +50,7 @@ export const FloatingNav = ({
                         className="relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 outline-none"
                     >
                         <span className="block sm:hidden">{navItem.icon}</span>
-                        <span className="hidden sm:block text-sm">{navItem.name}</span>
+                        <span className="hidden sm:block text-sm ">{navItem.name}</span>
                     </button>
                 ) : (
                     <Link
@@ -58,14 +58,18 @@ export const FloatingNav = ({
                         href={navItem.link}
                         className="relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300"
                     >
-                        <span className="block sm:hidden">{navItem.icon}</span>
-                        <span className="hidden sm:block text-sm">{navItem.name}</span>
+                        <span className="block sm:hidden">  
+                            {navItem.icon}
+                        </span>
+                        <span className="hidden sm:block text-sm text-cyan-500">
+                            {navItem.name}
+                        </span>
                     </Link>
                 )
             ))}
 
-            {/* Conditionally render "Hire Me" on the Projects page, otherwise show "Download CV" */}
-            {pathname === "/projects" ? (
+            {/* Conditionally render "Hire Me" on the Portfolio page, otherwise show "Download CV" */}
+            {pathname === "/portfolio" ? (
                 <button 
                     onClick={handleHireMeClick}
                     className="flex items-center justify-center gap-2 bg-gradient-to-bl to-cyan-500 from-slate-950 text-sm font-medium relative text-white px-4 py-2 rounded-full"

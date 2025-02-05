@@ -8,11 +8,11 @@ export function Experience() {
             title: "2024",
             content: (
                 <div className="bg-slate-900 md:rounded-xl rounded-md p-6">
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-6">
+                    <p className="text-neutral-200 text-sm font-normal mb-6">
                         Successfully completed an intensive internship at <strong>Programmify Ltd</strong>, where I actively contributed to the development of four high-impact projects, which took place from July 8 to Nov 12, 2024. 
                     </p>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-6">
-                        Throughout this period, I honed my skills in <strong>React.js, TypeScript, Firebase, and modern UI/UX principles</strong>. My work involved developing scalable web applications, optimizing front-end performance, and ensuring seamless user experiences. Plus, I also earned a <strong>certificate of completion</strong> for my hard work.
+                    <p className="text-neutral-200 text-sm font-normal mb-6">
+                        Throughout this period, I honed my skills in <strong>React.js, Firebase, and modern UI/UX principles</strong>. My work involved developing scalable web applications, optimizing front-end performance, and ensuring seamless user experiences. Plus, I also earned a <strong>certificate of completion</strong> for my hard work.
                     </p>
                     <a
                         href="/assets/Certificate_of_Completion.jpeg" // Update with your actual certificate path
@@ -21,10 +21,10 @@ export function Experience() {
                     >
                         Certificate <Download size={16} />
                     </a>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-6 mt-4">
+                    <p className="text-neutral-200 text-sm font-normal mb-6 mt-4">
                         Key achievements include:
                     </p>
-                    <ul className="list-disc pl-5 text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-6">
+                    <ul className="list-disc pl-5 text-neutral-200 text-sm font-normal mb-6">
                         <li>Designed and implemented four fully functional projects from start to finish.</li>
                         <li>Collaborated with a team of developers to refine best coding practices and workflow automation.</li>
                         <li>Integrated API services to enhance application performance and usability.</li>

@@ -26,6 +26,26 @@ export function Footer() {
         subject: "",
         message: "",
     });
+
+    useEffect(() => {
+        if (!isFormOpen) {
+            setFormData({
+                firstname: "",
+                lastname: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+    
+            setErrors({
+                firstname: "",
+                lastname: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+        }
+    }, [isFormOpen]);
     
     // Close the form when clicking outside
     useEffect(() => {
@@ -39,37 +59,69 @@ export function Footer() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const validateEmail = (email: string) => {
-        return /\S+@\S+\.\S+/.test(email);
+    const validateEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
+
+    const validateField = (name: string, value: string) => {
+        switch (name) {
+            case "firstname":
+                return value.trim() ? "" : "First name is required.";
+            case "lastname":
+                return value.trim() ? "" : "Last name is required.";
+            case "email":
+                return validateEmail(value) ? "" : "Enter a valid email address.";
+            case "subject":
+                return value.trim() ? "" : "Subject is required.";
+            case "message":
+                return value.trim().length >= 10 ? "" : "Message must be at least 10 characters.";
+            default:
+                return "";
+        }
     };
-    
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: validateField(name, value),
+        }));
+    };
+
     const validateForm = () => {
-        const newErrors = {
-            firstname: formData.firstname.trim() ? "" : "First name is required.",
-            lastname: formData.lastname.trim() ? "" : "Last name is required.",
-            email: validateEmail(formData.email) ? "" : "Enter a valid email address.",
-            subject: formData.subject.trim() ? "" : "Subject is required.",
-            message: formData.message.trim().length >= 10 ? "" : "Message must be at least 10 characters.",
-        };
+        const newErrors = Object.keys(formData).reduce((acc, field) => {
+            acc[field as keyof typeof formData] = validateField(field, formData[field as keyof typeof formData]);
+            return acc;
+        }, {} as typeof errors);
 
         setErrors(newErrors);
 
-        // Remove errors after 4 seconds
-        setTimeout(() => setErrors({ firstname: "", lastname: "", email: "", subject: "", message: "" }), 4000);
+        setTimeout(() => {
+            setErrors({
+                firstname: "",
+                lastname: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+        }, 4000);
 
         return Object.values(newErrors).every((err) => err === "");
     };
+
     
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!validateForm()) return;
 
         const formDataForSubmission = new FormData();
-        formDataForSubmission.append("firstname", formData.firstname);
-        formDataForSubmission.append("lastname", formData.lastname);
-        formDataForSubmission.append("email", formData.email);
-        formDataForSubmission.append("subject", formData.subject);
-        formDataForSubmission.append("message", formData.message);
+        Object.entries(formData).forEach(([key, value]) => {
+            formDataForSubmission.append(key, value);
+        });
 
         try {
             const response = await fetch("https://formspree.io/f/xnnjvqal", {
@@ -130,7 +182,7 @@ export function Footer() {
                     Every great product starts with a conversation. Whether you need a high-performance web app, a scalable backend, or a seamless user experience, let&rsquo;s connect and get it done.
                 </p>
                 <button 
-                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none mt-10 outline-none cursor-pointer z-50"
+                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none mt-10 outline-none cursor-pointer z-50 text-xs md:text-sm"
                     onClick={() => setIsFormOpen(true)}
                 >
                     <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
@@ -195,11 +247,12 @@ export function Footer() {
                                             <Label htmlFor="firstname">First name</Label>
                                             <Input 
                                                 id="firstname" 
+                                                name="firstname"
                                                 placeholder="Tyler" 
                                                 type="text" 
                                                 autoComplete="off"
                                                 value={formData.firstname}
-                                                onChange={(e) => setFormData({ ...formData, firstname: e.target.value })}
+                                                onChange={handleChange}
                                             />
                                             <AnimatePresence mode="wait">
                                                 {errors.firstname && <ErrorMessage message={errors.firstname} />}
@@ -209,11 +262,12 @@ export function Footer() {
                                             <Label htmlFor="lastname">Last name</Label>
                                             <Input 
                                                 id="lastname" 
+                                                name="lastname"
                                                 placeholder="Durden" 
                                                 type="text" 
                                                 autoComplete="off"
                                                 value={formData.lastname}
-                                                onChange={(e) => setFormData({ ...formData, lastname: e.target.value })}
+                                                onChange={handleChange}
                                             />
                                             <AnimatePresence mode="wait">
                                                 {errors.lastname && <ErrorMessage message={errors.lastname} />}
@@ -224,12 +278,13 @@ export function Footer() {
                                         <Label htmlFor="email">Email Address</Label>
                                         <Input 
                                             id="email" 
+                                            name="email"
                                             placeholder="example@gmail.com" 
                                             type="email" 
                                             autoComplete="off" 
                                             onInvalid={(e) => e.preventDefault()}
                                             value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            onChange={handleChange}
                                         />
                                         <AnimatePresence mode="wait">
                                             {errors.email && <ErrorMessage message={errors.email} />}
@@ -239,11 +294,12 @@ export function Footer() {
                                         <Label htmlFor="subject">Subject</Label>
                                         <Input 
                                             id="subject" 
+                                            name="subject"
                                             placeholder="What's the subject?" 
                                             type="text" 
                                             autoComplete="off" 
                                             value={formData.subject}
-                                            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                                            onChange={handleChange}
                                         />
                                         <AnimatePresence mode="wait">
                                             {errors.subject && <ErrorMessage message={errors.subject} />}
@@ -253,11 +309,12 @@ export function Footer() {
                                         <Label htmlFor="message">Message</Label>
                                         <Input 
                                             id="message" 
+                                            name="message"
                                             placeholder="Tell me about your project..." 
                                             type="text" 
                                             autoComplete="off" 
                                             value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            onChange={handleChange}
                                         />
                                         <AnimatePresence mode="wait">
                                             {errors.message && <ErrorMessage message={errors.message} />}
@@ -265,7 +322,7 @@ export function Footer() {
                                     </LabelInputContainer>
         
                                     <button
-                                        className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)inset,0px-1px_0px_0px_var(--zinc-800)_inset]"
+                                        className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)inset,0px-1px_0px_0px_var(--zinc-800)_inset] outline-none"
                                         type="submit"
                                     >
                                         Send message

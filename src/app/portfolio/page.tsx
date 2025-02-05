@@ -5,7 +5,7 @@ import { Projects } from '@/components/Projects';
 import { Services } from '@/components/Services'
 import { Testimonials } from '@/components/Testimonials';
 import { FloatingNav } from '@/components/ui/floating-navbar'
-import { Briefcase, Home, MessageSquareQuote, WorkflowIcon } from 'lucide-react'
+import { Home, Layers, MessageSquareQuote, Package, User } from 'lucide-react'
 import React from 'react'
 
 const page = () => {
@@ -13,19 +13,25 @@ const page = () => {
         {
             name: "Home",
             link: "/",
-            icon: <Home className="h-4 w-4 text-white" />,
+            icon: <Home className="h-4 w-4 text-cyan-500" />,
+            isInternal: false,
+        },
+        {
+            name: "About",
+            link: "/about",
+            icon: <User className="h-4 w-4 text-cyan-500" />,
             isInternal: false,
         },
         {
             name: "Services",
             link: "services-section",
-            icon: <WorkflowIcon className="h-4 w-4 text-white" />,
+            icon: <Package className="h-4 w-4 text-white" />,
             isInternal: true,
         },
         {
             name: "Projects",
             link: "projects-section",
-            icon: <Briefcase className="h-4 w-4 text-white" />,
+            icon: <Layers className="h-4 w-4 text-white" />,
             isInternal: true,
         },
         {

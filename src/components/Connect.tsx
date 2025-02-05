@@ -62,7 +62,7 @@ export function Connect() {
             }}
             className="flex flex-col gap-2 items-start"
         >
-            <h1 className="text-2xl leading-snug tracking-wide font-bold text-white">
+            <h1 className="md:text-2xl text-lg leading-snug tracking-wide text-white oblique font-serif">
                 Follow my journey in tech
             </h1>
             <FloatingDock

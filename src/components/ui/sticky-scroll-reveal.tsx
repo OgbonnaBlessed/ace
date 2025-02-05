@@ -73,8 +73,8 @@ export const StickyScroll = ({
                 transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
                 className="flex flex-col"
             >
-                <h1 className="text-2xl md:text-4xl md:mb-4 text-white max-w-4xl">My Services</h1>
-                <p className="text-neutral-300 text-lg md:text-base max-w-sm">
+                <h1 className="text-lg md:text-4xl md:mb-4 text-white max-w-4xl">My Services</h1>
+                <p className="text-neutral-300 text-sm md:text-base max-w-sm">
                     A list of the services I offer
                 </p>
             </motion.div>

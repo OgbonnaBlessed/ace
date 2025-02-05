@@ -6,9 +6,9 @@ import MyTechStack from "./MyTechStack";
 
 const services = [
     {
-        title: "Frontend Web Development",
+        title: "Frontend Development",
         description:
-            "I specialize in building interactive, high-performance, and user-friendly web applications using modern frameworks like React.js and Next.js. I always aim to build seamless, responsive, and visually appealing interfaces that enhance user experience.",
+            "I specialize in building interactive, high-performance, and user-friendly applications using modern frameworks like React.js and Next.js. I always aim to build seamless, responsive, and visually appealing interfaces that enhance user experience.",
         content: (
             <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
@@ -16,7 +16,7 @@ const services = [
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
-                    alt="Frontend Web Development"
+                    alt="Frontend Development"
                 />
             </div>
         ),
@@ -38,7 +38,7 @@ const services = [
         ),
     },
     {
-        title: "Full Stack Web Development",
+        title: "Full Stack Development",
         description:
             "With expertise in both frontend and backend development, I build robust full-stack applications using technologies like React.js, Next.js, Node.js, and Express. From database design to appealing user interfaces, I ensure seamless integration and high-performance applications.",
         content: (

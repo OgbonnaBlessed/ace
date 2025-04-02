@@ -325,7 +325,7 @@ const cards = [
     title: "Ace Tech Academia",
     src: "/portfolio/lms.png",
     ctaText: "Visit",
-    ctaLink: "https://acetechacademia.com",
+    ctaLink: "https://ace-tech-academia.vercel.app",
     category: ["website", "full-stack"],
     content: () => {
       return (

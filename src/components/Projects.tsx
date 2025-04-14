@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Minus } from "lucide-react";
 import { FaReact, FaDocker, FaAws, FaStripe, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiFramer, SiTypescript, SiZod, SiExpress, SiClerk, SiVercel, SiI3, SiNextdotjs, SiAmazondynamodb, SiShadcnui, SiReacthookform, SiGithubpages, SiJavascript, SiRender, SiFirebase, SiMongodb, SiNodedotjs } from 'react-icons/si';
+import { SiRedux, SiTailwindcss, SiFramer, SiTypescript, SiZod, SiExpress, SiClerk, SiVercel, SiI3, SiNextdotjs, SiAmazondynamodb, SiShadcnui, SiReacthookform, SiGithubpages, SiJavascript, SiRender, SiFirebase, SiMongodb, SiNodedotjs, SiPostgresql, SiPrisma, SiPostman, SiAwslambda } from 'react-icons/si';
 
 export function Projects() {
     const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(null);
@@ -271,7 +271,7 @@ const techStackIcons: { [key: string]: JSX.Element } = {
     <FaDocker className="text-blue-500 text-2xl" />
   ),
   "AWS Lambda": (
-    <FaAws className="text-orange-500 text-2xl" />
+    <SiAwslambda className="text-orange-500 text-2xl" />
   ),
   "DynamoDB": (
     <SiAmazondynamodb className="text-indigo-600 text-2xl" />
@@ -308,6 +308,18 @@ const techStackIcons: { [key: string]: JSX.Element } = {
   ),
   "MongoDB": (
     <SiMongodb className="text-green-500 text-2xl" />
+  ),
+  "PostgreSQL": (
+    <SiPostgresql className="text-blue-500 text-2xl" />
+  ),
+  "Prisma" : (
+    <SiPrisma className="text-black text-2xl" />
+  ),
+  "Postman": (
+    <SiPostman className="text-orange-500 text-2xl" />
+  ),
+  "AWS": (
+    <FaAws className="text-orange-500 text-2xl" />
   )
 }
 
@@ -499,6 +511,34 @@ const cards = [
           </div>
           <div>
             Velora is designed to provide a seamless and secure travel booking experience, combining powerful backend functionality with an intuitive frontend.
+          </div>
+        </div>
+      );
+    },
+  },
+  {
+    title: "Terra Haven",
+    src: "/portfolio/terra-haven.png",
+    ctaText: "Visit",
+    ctaLink: "https://master.d1owvtqqkoar7m.amplifyapp.com/", // Replace with actual link
+    category: ["website", "full-stack"],
+    content: () => {
+      return (
+        <div className="pb-5 flex flex-col gap-5">
+          <div>
+            Terra Haven is an interactive geospatial web application designed to visualize, manage, and interact with location-based data in real-time. Built for modern mapping experiences, it combines powerful geolocation features with a clean and responsive UI.
+          </div>
+          <div>
+            On the frontend, Terra Haven utilizes <TechStack name="Next.js" /> and <TechStack name="TypeScript" /> for dynamic UI rendering, integrated with Mapbox and Mapbox React GL to deliver rich, high-performance map experiences. Form validation is seamlessly handled using <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while UI components are styled with <TechStack name="Shadcn" /> and enhanced with notifications via Shadcn Sonner.
+          </div>
+          <div>
+            State management and API communication are efficiently powered by <TechStack name="Redux Toolkit" /> and Redux Toolkit Query, ensuring a responsive and data-driven application.
+          </div>
+          <div>
+            On the backend, Terra Haven leverages <TechStack name="PostgreSQL" /> enhanced with PostGIS for advanced geospatial queries and spatial data storage. <TechStack name="Prisma" /> is used as the ORM for streamlined database interactions, with PgAdmin for database management and <TechStack name="Postman" /> for API testing.
+          </div>
+          <div>
+            Authentication and user management are powered by AWS Cognito, with cloud infrastructure handled through AWS CLI. The entire application is hosted on <TechStack name="AWS" />, ensuring scalability and reliability.
           </div>
         </div>
       );

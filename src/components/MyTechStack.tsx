@@ -1,6 +1,7 @@
 import { animate } from "framer-motion";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { FaAws } from "react-icons/fa";
 import {
   SiAmazondynamodb,
   SiBootstrap,
@@ -13,7 +14,7 @@ import {
   SiReact,
   SiTailwindcss,
   SiTypescript,
-  SiAwsamplify,
+//   SiAwsamplify,
 } from "react-icons/si";
 
 const techStack = [
@@ -28,7 +29,7 @@ const techStack = [
   { name: "DynamoDB", icon: SiAmazondynamodb, color: "text-blue-700" },
   { name: "Express.js", icon: SiExpress, color: "text-black" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-500" },
-  { name: "AWS", icon: SiAwsamplify, color: "text-orange-700" },
+  { name: "AWS", icon: FaAws, color: "text-orange-700" },
 ];
 
 const MyTechStack = () => {

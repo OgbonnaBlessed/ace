@@ -526,7 +526,7 @@ const cards = [
       return (
         <div className="pb-5 flex flex-col gap-5">
           <div>
-            Terra Haven is an interactive geospatial web application designed to visualize, manage, and interact with location-based data in real-time. Built for modern mapping experiences, it combines powerful geolocation features with a clean and responsive UI.
+            Terra Haven is a modern real estate web application that allows users to explore, manage, and interact with property listings through a real-time geospatial interface. It offers an immersive, map-based browsing experience powered by responsive design and advanced geolocation features.
           </div>
           <div>
             On the frontend, Terra Haven utilizes <TechStack name="Next.js" /> and <TechStack name="TypeScript" /> for dynamic UI rendering, integrated with Mapbox and Mapbox React GL to deliver rich, high-performance map experiences. Form validation is seamlessly handled using <TechStack name="React Hook Form" /> and <TechStack name="Zod" />, while UI components are styled with <TechStack name="Shadcn" /> and enhanced with notifications via Shadcn Sonner.

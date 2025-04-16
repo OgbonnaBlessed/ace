@@ -39,7 +39,7 @@ export function Connect() {
             icon: (
                 <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
             ),
-            href: "#",
+            href: "https://x.com/ace_codes01?t=ndtRXTipvZFk08T1JEUW6Q&s=09",
         },
         {
             title: "GitHub",

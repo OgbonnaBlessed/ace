@@ -494,7 +494,7 @@ const cards = [
   },
   {
     title: "Omega Vision Christian Network",
-    src: "/portfolio/ovcn.png",
+    src: "/portfolio/omega.png",
     ctaText: "Visit",
     ctaLink: "https://omegavisionchristiannetwork.com/",
     category: ["website"],

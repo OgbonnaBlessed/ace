@@ -655,8 +655,8 @@ const cards = [
   {
     title: "Lekota",
     src: "/portfolio/lekota.jpeg",
-    ctaText: "Private",
-    ctaLink: "https://lekota-virid.vercel.app/signup",
+    ctaText: "Visit",
+    ctaLink: "https://lekota-virid.vercel.app",
     category: ["website", "full-stack"],
     content: () => {
       return (

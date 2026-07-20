@@ -493,34 +493,38 @@ const cards = [
     },
   },
   {
-    title: "Omega Vision Christian Network",
-    src: "/portfolio/omega.png",
-    ctaText: "Visit",
-    ctaLink: "https://omegavisionchristiannetwork.com/",
-    category: ["website"],
-    content: () => {
-      return (
-        <div className="pb-5 flex flex-col gap-5">
-          <div>
-            Omega Vision Christian Network is a dynamic church website designed
-            to serve as a digital hub for worship, community engagement, and
-            spiritual growth. Built with <TechStack name="HTML" />,{" "}
-            <TechStack name="CSS" />, and <TechStack name="JavaScript" />, the
-            site features an intuitive layout and a carousel slider that
-            dynamically showcases key church events.
-          </div>
-          <div>
-            The platform provides visitors with essential church information,
-            fostering a welcoming online presence for both members and
-            newcomers. Hosted on <TechStack name="GitHub Pages" />, it ensures
-            seamless accessibility and reliability. This project reflects a
-            commitment to excellence in web development while supporting the
-            mission of the church.
-          </div>
+  title: "Omega Vision Christian Network",
+  src: "/portfolio/omega.png",
+  ctaText: "Visit",
+  ctaLink: "https://omegavisionchristiannetwork.com/",
+  category: ["website"],
+  content: () => {
+    return (
+      <div className="pb-5 flex flex-col gap-5">
+        <div>
+          Omega Vision Christian Network is a modern church website designed to
+          serve as a digital hub for worship, community engagement, and
+          spiritual growth. Built with <TechStack name="React.js" /> and{" "}
+          <TechStack name="TypeScript" />, the platform features a responsive
+          interface, dynamic content, and an intuitive user experience.
         </div>
-      );
-    },
+
+        <div>
+          Visitors can explore church events, ministries, sermons, and other
+          essential information through a clean and accessible interface,
+          fostering stronger engagement with both members and first-time
+          visitors.
+        </div>
+
+        <div>
+          The application is deployed on <TechStack name="Vercel" />,
+          delivering fast performance, reliable hosting, and seamless
+          accessibility across devices.
+        </div>
+      </div>
+    );
   },
+},
   {
     title: "This Jesus Blog",
     src: "/portfolio/this-jesus-blog.png",

@@ -496,7 +496,7 @@ const cards = [
     title: "Omega Vision Christian Network",
     src: "/portfolio/ovcn.png",
     ctaText: "Visit",
-    ctaLink: "https://ogbonnablessed.github.io/Omega-Vision-Christian-Network/",
+    ctaLink: "https://omegavisionchristiannetwork.com/",
     category: ["website"],
     content: () => {
       return (
